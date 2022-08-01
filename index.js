@@ -74,6 +74,7 @@ let IdadeSeparada = ((to, sub,g) => {
     if(to.length == 0){
         return alert("Adicione uma pessoa");
     }
+    let total = document.querySelector(".total")
     let count = 0;
     let lado1 = document.querySelector(".lado");
     let lado2 = document.querySelector(".lad");
@@ -84,8 +85,14 @@ let IdadeSeparada = ((to, sub,g) => {
 
 
 
-    if (containermensagem.classList == "container-mensagem cm") containermensagem.classList.remove("cm");
-    else containermensagem.className += " cm";
+    if (containermensagem.classList == "container-mensagem cm"){
+     containermensagem.classList.remove("cm");
+     total.innerHTML = "Clique aqui para ver o total"
+    }
+    else {
+        total.innerHTML = "Clique aqui para remover a aba"
+        containermensagem.className += " cm";
+    }
     if (mensagemtopo.classList == "mensagem-topo mt") mensagemtopo.classList.remove("mt");
     else mensagemtopo.className += " mt";
     if (mensagem.classList == "mensagem m") mensagem.classList.remove("m");
@@ -100,7 +107,6 @@ let IdadeSeparada = ((to, sub,g) => {
         mensagemtopo2.className += " mt2";
         mensagemtopo2.innerHTML = `<h6>+18</h6> <h6>-18</h6>`;
     }
-    desabilita(g);
     mensagemtopo.innerHTML = `<h5>Separado por idade</h5>`;
     lado1.innerHTML = "";
     lado2.innerHTML = "";
@@ -166,10 +172,5 @@ let IdadeSeparada = ((to, sub,g) => {
     })
     mensagemtopo.innerHTML = `Total de pessoas: ${count}`;
 })
-let desabilita = (tota)=>{
-    let a = document.querySelector(".total");
-    let b = a.parentNode;
-    let c = b.removeChild(a);
-    
-}
+
 
